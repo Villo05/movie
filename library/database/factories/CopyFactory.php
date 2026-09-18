@@ -3,12 +3,14 @@
 namespace Database\Factories;
 
 use App\Models\Book;
+use App\Models\Copy;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<Book>
+ * @extends Factory<Copy>
  */
-class BookFactory extends Factory
+class CopyFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,9 +20,8 @@ class BookFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->sentence(),
-            'author' => fake()->name(),
-            'pieces' => fake()->numberBetween(10, 100),
+            'book_id' => Book::all()->factory(),
+            'user_id' => User::all()->factory(),
         ];
     }
 }
