@@ -11,4 +11,9 @@ class Copy extends Model
 {
     /** @use HasFactory<\Database\Factories\CopyFactory> */
     use HasFactory;
+
+    function lendings()
+    {
+        return $this->hasMany(Lending::class);
+    }
 }
