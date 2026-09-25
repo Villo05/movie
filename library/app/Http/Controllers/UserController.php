@@ -28,7 +28,9 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $record = new User();
+        $record->create($request->all());
+        return $record;
     }
 
     /**
@@ -36,7 +38,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return $user;
     }
 
     /**
@@ -52,7 +54,11 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $record = User::find($user->id);
+        $record->update($request->all());
+        return $record;
+        
+ 
     }
 
     /**
@@ -60,6 +66,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        //return $record = User::findorFail($user->id)->delete();
+        return $record = User::destroy($user->id);
+
     }
 }
