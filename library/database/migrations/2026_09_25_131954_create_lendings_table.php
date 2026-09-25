@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('lendings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('copy_id')->constrained('copies')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('copy_id')->constrained('copies');
             $table->timestamp('start');
             $table->timestamps();
         });
